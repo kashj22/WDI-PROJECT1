@@ -1,15 +1,29 @@
+body {
+  margin: 0 auto;
+  text-align: center;
+}
+
 ul {
   padding: 0;
   margin: 0;
+  text-align: center;
 }
 
 li {
-  margin: 10px;
   display: inline-block;
   width: 100px;
-  height: 100px;
+  height: 150px;
+  margin: 3px;
   border: 1px solid #333;
-  background-color: red; 
+  background-image: url(http://cdn.shopify.com/s/files/1/0200/7616/products/red-back_f5b496d2-40ac-490d-b7cc-781bebce921c_large.png?v=1414176214);
+  background-position: center;
+  background-size: cover;
+  border-radius: 5px;
+  vertical-align: top;
+}
+
+#A {
+  background-image: 
 }
 
 .matched {
