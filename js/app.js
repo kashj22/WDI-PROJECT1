@@ -18,24 +18,48 @@ $(function() {
   // 'G','G','H','H','I','I','J','J','K','K','L','L']
   var counter = 1;
 
+  var firstClick = secondClick = null;
+
   var cellIdOne = null;
   var cellIdTwo = null;
 
   var cells = document.getElementsByTagName("li");
+  function shuffle (cells) {
+    var cellsLength = cells.length
+    var index
+    var temp
+    //while there are elements in the array
+    while (cellsLength > 0) {
+      //picking a random index
+      index = Math.floor(Math.random() * cellsLength);
+
+      //Decrease cellsLength by 1
+      cellsLength--;
+
+      //And swap the last element with it
+      temp = cells[cellsLength];
+      cells[cellsLength] = cells[index];
+      cells[index] = temp;
+
+    }
+
+    return cells
+  }
   for(i=0; i<cells.length;i++){
     cells[i].addEventListener("click", showValues);
   }
+  
 
   function showValues(){
     if (counter % 2) { // first click
-      var firstClick = event.target
+      firstClick = event.target
       console.log(firstClick)
       cellIdOne = event.target.getAttribute("data-value")
       event.target.innerText = cellIdOne;
       console.log("First turn")
       console.log(cellIdOne)
     } else { // second click
-      var secondClick = event.target
+      secondClick = event.target
       console.log(secondClick)
       cellIdTwo = event.target.getAttribute("data-value")
       event.target.innerText = cellIdTwo;
@@ -43,20 +67,23 @@ $(function() {
       console.log(cellIdTwo)
 
 
-      check(cellIdOne, cellIdTwo, firstClick, secondClick)
+      check(cellIdOne, cellIdTwo)
     }
     counter++
     //create a variable that will get the data number of the cell 
     //that's clicked
   }
 
-  function check(cellIdOne, cellIdTwo, firstClick, secondClick) {
+  function check(cellIdOne, cellIdTwo) {
     if (cellIdOne == cellIdTwo) {
-      console.log("Match!")
+      
       // your code here
-      console.log(firstClick)
-      console.log(secondClick)
+      $(firstClick).fadeOut()
+      $(secondClick).fadeOut()
+      
     } else {
+      $(firstClick).text($(firstClick).data("cell-id"))
+      $(secondClick).text($(secondClick).data("cell-id"))
       console.log("No match!")
     }
   }
@@ -68,6 +95,8 @@ $(function() {
     memory_array
 
   }
+
+  shuffle()
 
 });
 
