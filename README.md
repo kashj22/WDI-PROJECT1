@@ -17,11 +17,11 @@ This game was created entirely in vanilla JavaScript, HTML and CSS.
 
 
 
-<h2> Responsive Design</h2>
+<h2>Responsive Design</h2>
 
 The layout for the pages were created using foundation grid to allow for responsive design. 
 
-<h2> Unsolved Problems</h2>
+<h2>Unsolved Problems</h2>
 
 I would have liked to include a mode where two players could play to see who could solve the game quicker. We would have a timer to time each player, and the player with the quickest time would win.
 
